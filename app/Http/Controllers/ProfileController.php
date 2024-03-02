@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Exceptions\PostTooLargeException;
 use Illuminate\Http\RedirectResponse;
 use Intervention\Image\Laravel\Facades\Image;
 
@@ -63,7 +64,7 @@ class ProfileController extends Controller
             // dd($user->username);
 
             return redirect()->route('profile.index');
-        } catch (Exception $e) {
+        } catch (PostTooLargeException $e) {
             return back()->with('error', 'Imagen Grande');
         }
     }
