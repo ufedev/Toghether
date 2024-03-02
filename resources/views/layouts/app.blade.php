@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-
+    @livewireStyles
     <title>Toghether -- @yield('title')</title>
 </head>
 
@@ -52,6 +52,7 @@
         Toghether - Todos los derechos reservados {{ now()->year }}
 
     </footer>
+    @livewireScripts
 </body>
 
 </html>
