@@ -6,10 +6,16 @@
 
 @section('content')
     <section class='w-full lg:w-6/12 flex flex-col lg:flex-row justify-center items-center mx-auto gap-5'>
-        <div class='w-40 h-40 rounded-[50%]'>
-            <img src="{{ asset('profiles_images/' . auth()->user()->image) }}" alt="Imagen Usuario" class='rounded-[50%]' />
-        </div>
+        <div class='flex flex-col '>
+            <div class='w-40 h-40 rounded-[50%]'>
+                <img src="{{ asset('profiles_images/' . auth()->user()->image) }}" alt="Imagen Usuario"
+                    class='rounded-[50%]' />
 
+            </div>
+            @if (session('error'))
+                <p class='p-2 text-center bg-red-500 text-white font-medium'>{{ session('error') }}</p>
+            @endif
+        </div>
         <form action="{{ route('profile.store') }}" method="POST" enctype="multipart/form-data"
             class='p-5 border-[1px] border-slate-200 rounded bg-white w-3/4'>
             @csrf
